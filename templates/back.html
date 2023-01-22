@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Home Page</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    {% if user %}
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>Welcome User!</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>Parabén, você está logado</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul>
+                        <label for="Deslogar">                        
+                        <a href="{{ url_for('logout') }}">Deslogar</a>
+                        </label>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <script>
+            alert('Erro, você não está logado!');
+
+        </script>
+        <meta http-equiv="refresh" content="0;url={{url_for('login')}}">
+    {% endif %}
+
+</body>
+</html>
